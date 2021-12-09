@@ -1,19 +1,15 @@
 var express = require('express');
 var router = express.Router();
-const {Post} = require('../models/index');
 
+
+// /* GET home page. */
 router.get('/', function(req, res, next) {
-  Post.findAll().then( posts => { 
-    console.log(posts);
-    
-    res.render('index',{ 
+
+  //return the index view and a table of datas
+  res.render('index', 
+  { 
     title: 'Bienvenue a la commu des includos',
-    name: 'Zlatan', data:posts
+    name: 'Zlatan',
   });
-
-
-  })
-
 });
 module.exports = router;
-
