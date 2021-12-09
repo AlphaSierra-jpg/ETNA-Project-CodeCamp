@@ -9,7 +9,7 @@ const PostModel = require('./models/post');
 //importing routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var FindAllpostsRouter = require('./routes/findAllPosts');
+
 //set views and engines
 var app = express();
 
@@ -45,6 +45,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/posts', FindAllpostsRouter);
+
 module.exports = app;
 
