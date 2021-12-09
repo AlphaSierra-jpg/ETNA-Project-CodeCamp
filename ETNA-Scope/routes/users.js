@@ -22,14 +22,14 @@ router.get('/', function(req, res, next) {
     }};
 
     var data = `{
-        "login" : "habert_j",
-        "password" : "Sniper1002"
+        "login" : "",
+        "password" : "pwd"
     }`;
 
     var tempo = xhr.getResponseHeader('Set-Cookie');
 
     xhr.send(data);
-    res.cookie('cookie', tempo);
+    res.cookie('cookie', 1);
     res.json({data:0})
 
 });
