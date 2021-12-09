@@ -12,9 +12,12 @@
 //node docs https://nodejs.org/en/
 
 'use strict';
+
+
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Post extends Model {
     /**
