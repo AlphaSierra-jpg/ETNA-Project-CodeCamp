@@ -4,12 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser   = require('body-parser');
-const PostModel = require('./models/post');
 
 //importing routes
-var indexRouter = require('./routes/index');
+var loginRouter = require('./routes/login');
 var usersRouter = require('./routes/users');
-var testsRouter = require('./routes/tests.js');
+var indexRouter = require('./routes/index');
+
 //set views and engines
 var app = express();
 
@@ -18,9 +18,6 @@ const db = require('./models/index.js')
 const sequelize = db.sequelize;
 sequelize.authenticate().then(_=>console.log('database connexion is validated'))
 .catch(error =>console.error(error));
-
-// //importing somes models 
-const Post = PostModel;
 
 
 //set views and engines
@@ -42,9 +39,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/create',testsRouter);
+app.use('/login', loginRouter);
+app.use('/', indexRouter);
 module.exports = app;
 

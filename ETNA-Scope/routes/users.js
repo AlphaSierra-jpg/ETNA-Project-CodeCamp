@@ -1,37 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var XMLHttpRequest = require('xhr2');
+const {Post} = require('../models/index');
 
-
-/* GET users listing. */
+//GET ALL POSTS
 router.get('/', function(req, res, next) {
-  
-    var url = "https://auth.etna-alternance.net/identity";
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", url);
-
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/json");
-
-    xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) {
-        console.log(xhr.status);
-        console.log(xhr.responseText);
-        console.log(xhr.getResponseHeader('Set-Cookie'));
-    }};
-
-    var data = `{
-        "login" : "",
-        "password" : "pwd"
-    }`;
-
-    var tempo = xhr.getResponseHeader('Set-Cookie');
-
-    xhr.send(data);
-    res.cookie('cookie', 1);
-    res.json({data:0})
-
+  res.json('charly ça marche ils sont ou mes putains de cookies !!!!!!!!!!!!!!!!!')
 });
 
 module.exports = router;
