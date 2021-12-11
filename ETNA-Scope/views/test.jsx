@@ -4,8 +4,8 @@ var DefaultLayout = require('./layouts/default');
 function editon(props) {
   return (
     <DefaultLayout title={props.title}>
-
-        <div>Hello {props.name}</div>
+        
+        {/* <div>Hello {props.name}</div>
         <form method="POST" action="/post/update">
         <input type="hidden" name="id" value={props.data[0].id} />  
         <input name="firstName" value={props.data[0].firstName} required />
@@ -16,7 +16,7 @@ function editon(props) {
         <input type="tel" pattern="[+]{1}[0-9]{2}[0-9]{9}" name="phone" value={props.data[0].phone} required />
         <textarea name="hrNote" value={props.data[0].hrNote} required/>
         <button type="submit">button</button>
-        </form>  
+        </form>   */}
      </DefaultLayout>
   );
 }

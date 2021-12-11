@@ -1,5 +1,6 @@
 const {Post} = require('../models/index');
-
+var express = require('express');
+var router = express.Router();
 
 //LIST ALL 
 exports.listAll = function (req, res, next) {

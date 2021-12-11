@@ -6,8 +6,8 @@ function login(props) {
 
 
     <form method="POST" action="/login">
-        <input type="text" name="login" placeholder="type your login"></input>
-        <input type="password" name="password" placeholder="type your password"></input>
+        <input type="text" name="login" placeholder="type your login" required></input>
+        <input type="password" name="password" placeholder="type your password" required></input>
         <button type="submit">Submit</button>
       </form>
 

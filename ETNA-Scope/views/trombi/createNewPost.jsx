@@ -4,8 +4,8 @@ function CreateNewPost(){
 
     return (
     <form method="POST" action="/create">
-    <input name="firstName" value="Kangourou" required />
-    <input name="lastName" value="Jack" required />
+    <input name="firstName" placeholder="First Name"value="Kangourou" required />
+    <input name="lastName" placeholder="Last name"value="Jack" required />
     <input name="service" value="Boxeur" required/>
     <input name="pictureUrl" type="url" value="https://fr.web.img4.acsta.net/r_1280_720/medias/nmedia/18/35/09/91/p5.jpg" required/>
     <input name="mail" type="email" value="kangourou.jack@aymeric.com" required/>
