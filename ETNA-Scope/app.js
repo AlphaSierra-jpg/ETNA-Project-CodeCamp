@@ -8,7 +8,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 const passport = require('passport');
 const session = require('express-session');
-
+const flash = require("message-flash");
 
 //importing routes
 var loginRouter = require('./routes/login');
@@ -17,9 +17,11 @@ var indexRouter = require('./routes/index');
 
 //set views and engines
 var app = express();
+// Use the message-flash middleware
+app.use(flash);
 
 
-app.use(session({ secret: 'storie', cookie: { maxAge: 6000 }}))
+app.use(session({ secret: 'storie', resave:false ,cookie: { maxAge: 6000 }}))
 
 
 //Calling databases
@@ -27,6 +29,15 @@ const db = require('./models/index.js')
 const sequelize = db.sequelize;
 sequelize.authenticate().then(_=>console.log('database connexion is validated'))
 .catch(error =>console.error(error));
+
+
+//Init flash 
+
+app.use(flash());
+
+//init password 
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 //set views and engines

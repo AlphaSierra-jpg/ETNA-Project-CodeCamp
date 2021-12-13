@@ -7,6 +7,8 @@ const { cookie } = require('request-promise');
 const {User} = require('../models/index');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+const passport = require('passport');
+const flash = require("message-flash");
 
 exports.checkEtnaLogin= function (req, res, next) {
 
@@ -107,7 +109,7 @@ exports.checkEtnaLogin= function (req, res, next) {
                   res.json("error : "+ err +" Cannot register user at the moment ")
               });
               if (savedUser) { 
-
+                passport.authenticate("local").catch()
                 res.json("Thanks for reqistering")
               }
     
