@@ -5,20 +5,13 @@ var cookieJar = request.jar();
 var request = require('request');
 const { cookie } = require('request-promise');
 const {User} = require('../models/index');
+const bcrypt = require('bcrypt');
 exports.checkEtnaLogin= function (req, res, next) {
 
-    var password = req.body.password
-    var login = req.body.login;
+    const { login,password } = req.body
     var headerCookie,userId,userInfo,userFirstname,userLastname,userEmail,userLogin,userRole;
     var session = 0;
-    var isCreatedValidator = false ;
-    
-    function isCreated(login) {
-        
-        User.findAll( { where: { login : login }}).then( user => { if(user.login==login){isCreatedValidator=true;}         
-        })}
-         isCreated(login);
-        if (isCreatedValidator){console.log('existing user')}else{console.log('notDefined')}
+
     function getDataUser() {
         
         var options = {
@@ -78,8 +71,9 @@ exports.checkEtnaLogin= function (req, res, next) {
               userEmail = userInfo["email"]
       
               userRole = userInfo["roles"].includes('adm');
-
+                console.log(login+" "+userLogin)
                 if (login == userLogin) { session=1;}
+                console.log("session : "+ session)
       
             } else { 
               console.log("Error:" + error)
@@ -90,11 +84,37 @@ exports.checkEtnaLogin= function (req, res, next) {
           
           
           setTimeout(returnValue,500);
+
       
           function returnValue() {
-            res.render('index',{ userFirstname: userFirstname, userLastname: userLastname,userLogin,userEmail: userEmail, userRole: userRole,session: session})
-            // res.json("User firstname: " + userFirstname + ", lastname: " + userLastname + ", login: " + userLogin + ", email: " + userEmail + ", Is Admin: " + userRole + session)
-          }
+            console.log(session);
+            if(session == 1) {
+
+              async function checkdatabase(){
+                const { login } = req.body  
+                const alreadyexistUser =  await User.findOne({where :{login}}).catch(err => {console.log("error :"+err)})
+                if(alreadyexistUser){
+                  return res.json({ message : "an User with the login Already Exist"})
+                }
+                // const salt =  await bcrypt.genSalt(10)
+                const newUser = new User({ login })
+                // newUser.password =  await bcrypt.hash(newUser.password,salt)
+                const savedUser = await newUser.save().catch((err) => {
+                  console.error(err);
+                  res.json("error : "+ err +" Cannot register user at the moment ")
+              });
+              if (savedUser) res.json("Thanks for reqistering")
+    
+              }
+
+            
+            checkdatabase();
+          
+            
+          }else{ res.json("Something is wrong maybe an issue with your Etna login or password") }
+        }
+
+
       }
     
       getDataUser()

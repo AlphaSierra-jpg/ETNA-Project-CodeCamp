@@ -14,9 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   User.init({
-    login: DataTypes.STRING,
-    isAdmin: DataTypes.BOOLEAN,
-    postId: DataTypes.INTEGER
+    login: {type : DataTypes.STRING , allowNull:false},
+    isAdmin: {type : DataTypes.BOOLEAN , defaultValue:false},
   }, {
     sequelize,
     modelName: 'User',

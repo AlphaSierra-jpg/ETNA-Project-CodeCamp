@@ -5,7 +5,6 @@ module.exports = {
     return queryInterface.bulkInsert('Users', [{
       login : 'John',
       isAdmin: true,
-      postId: null,
       createdAt : new Date(),
       updatedAt : new Date(),
 
