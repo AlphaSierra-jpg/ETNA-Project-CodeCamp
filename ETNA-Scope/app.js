@@ -7,6 +7,7 @@ const bodyParser   = require('body-parser');
 const helmet = require("helmet");
 const cors = require("cors");
 const passport = require('passport');
+const session = require('express-session');
 
 
 //importing routes
@@ -16,6 +17,10 @@ var indexRouter = require('./routes/index');
 
 //set views and engines
 var app = express();
+
+
+app.use(session({ secret: 'storie', cookie: { maxAge: 6000 }}))
+
 
 //Calling databases
 const db = require('./models/index.js')

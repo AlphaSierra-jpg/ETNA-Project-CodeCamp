@@ -6,11 +6,13 @@ var request = require('request');
 const { cookie } = require('request-promise');
 const {User} = require('../models/index');
 const bcrypt = require('bcrypt');
+const session = require('express-session');
+
 exports.checkEtnaLogin= function (req, res, next) {
 
     const { login,password } = req.body
     var headerCookie,userId,userInfo,userFirstname,userLastname,userEmail,userLogin,userRole;
-    var session = 0;
+    var userExist = 0;
 
     function getDataUser() {
         
@@ -71,9 +73,9 @@ exports.checkEtnaLogin= function (req, res, next) {
               userEmail = userInfo["email"]
       
               userRole = userInfo["roles"].includes('adm');
-                console.log(login+" "+userLogin)
-                if (login == userLogin) { session=1;}
-                console.log("session : "+ session)
+               
+                if (login == userLogin) { userExist=1;}
+
       
             } else { 
               console.log("Error:" + error)
@@ -88,12 +90,13 @@ exports.checkEtnaLogin= function (req, res, next) {
       
           function returnValue() {
             console.log(session);
-            if(session == 1) {
+            if(userExist == 1) {
 
               async function checkdatabase(){
                 const { login } = req.body  
                 const alreadyexistUser =  await User.findOne({where :{login}}).catch(err => {console.log("error :"+err)})
                 if(alreadyexistUser){
+                  
                   return res.json({ message : "an User with the login Already Exist"})
                 }
                 // const salt =  await bcrypt.genSalt(10)
@@ -103,7 +106,10 @@ exports.checkEtnaLogin= function (req, res, next) {
                   console.error(err);
                   res.json("error : "+ err +" Cannot register user at the moment ")
               });
-              if (savedUser) res.json("Thanks for reqistering")
+              if (savedUser) { 
+
+                res.json("Thanks for reqistering")
+              }
     
               }
 

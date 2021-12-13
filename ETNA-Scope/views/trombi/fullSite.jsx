@@ -1,5 +1,5 @@
 var React = require('react');
-var Trombi = require('./Trombi');
+var Trombi = require('./trombi');
 var CreateNewPost = require('./createNewPost');
 
 function Site(props){ 
