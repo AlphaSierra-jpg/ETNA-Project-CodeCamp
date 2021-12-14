@@ -18,6 +18,7 @@ router.post('/logout',function(req, res, next) {
   res.clearCookie(this.cookie, { path: '/' });
   res.redirect('..')
 })
+
 module.exports = router;
 
   

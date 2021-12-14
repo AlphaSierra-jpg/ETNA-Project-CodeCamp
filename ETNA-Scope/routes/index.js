@@ -16,8 +16,9 @@ router.post('/post/update', postController.update)
 router.get('/dl/:id', postController.delete);
 //Say hello to zlatan
 router.get('/zlatan',function(req,res,next){
-  res.send('hello');
+  res.json('hello');
 })
+
 
 
 module.exports = router;

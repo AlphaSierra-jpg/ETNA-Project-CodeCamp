@@ -7,7 +7,7 @@ function Trombi(props) {
           <h3>{item.lastName} - {item.id}</h3>
           <p>{item.surName}</p>
           <a href={"/"+item.id}>test </a>
-          <a href={"/dl/"+item.id}>delete</a>
+          <a href={"index/dl/"+item.id}>delete</a>
         </div>
       )))}
     </div>)

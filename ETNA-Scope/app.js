@@ -12,7 +12,7 @@ const session = require('express-session');
 
 //importing routes
 var loginRouter = require('./routes/login');
-var usersRouter = require('./routes/users');
+var adminRouter = require('./routes/admin');
 var indexRouter = require('./routes/index');
 
 //set views and engines
@@ -51,7 +51,7 @@ app.use(helmet());
 app.use(cors());
 
 
-app.use('/users', usersRouter);
+app.use('/admin', adminRouter);
 app.use('/index', indexRouter);
 app.use('/', loginRouter);
 app.all('*',function(req, res){res.redirect('/')})
