@@ -37,7 +37,7 @@
     "reqquest": "^0.0.1-security",
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
-    "sequelize": "^6.12.0-beta.1",
+    "sequelize": "^6.12.0-beta.3",
     "session": "^0.1.0",
     "xhr2": "^0.2.1"
   },

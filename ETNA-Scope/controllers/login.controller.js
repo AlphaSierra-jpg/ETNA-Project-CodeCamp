@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request-promise');
-var cookieJar = request.jar();
 var request = require('request');
 const { cookie } = require('request-promise');
 const {User} = require('../models/index');
@@ -19,6 +18,8 @@ exports.checkEtnaLogin= function (req, res, next) {
 
     function getDataUser() {
         
+      var cookieJar = request.jar();
+
         var options = {
         
           uri: 'https://auth.etna-alternance.net/identity',
