@@ -4,7 +4,11 @@ const {Post} = require('../models/index');
 
 //GET ALL POSTS
 router.get('/', function(req, res, next) {
-  res.json('charly ça marche ils sont ou mes putains de cookies !!!!!!!!!!!!!!!!!')
+  if(req.session.isAdmin && req.session.loggedin) {
+    res.json('tu es admin toi ?? ');
+  }else{
+    res.redirect('..');
+  }
 });
 
 module.exports = router;

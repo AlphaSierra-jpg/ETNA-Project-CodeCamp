@@ -9,6 +9,7 @@ const bcrypt = require('bcrypt');
 const session = require('express-session');
 const passport = require('passport');
 const flash = require("message-flash");
+const passportLocal = require('passport-local');
 
 exports.checkEtnaLogin= function (req, res, next) {
 
@@ -98,8 +99,12 @@ exports.checkEtnaLogin= function (req, res, next) {
                 const { login } = req.body  
                 const alreadyexistUser =  await User.findOne({where :{login}}).catch(err => {console.log("error :"+err)})
                 if(alreadyexistUser){
+                  req.session.isAdmin = alreadyexistUser.isAdmin;
+                  req.session.loggedin = true;
+                  req.session.login = login;
+                  req.session.cookieEtna = headerCookie
                   
-                  return res.json({ message : "an User with the login Already Exist"})
+                  return res.redirect('/index')
                 }
                 // const salt =  await bcrypt.genSalt(10)
                 const newUser = new User({ login })
@@ -107,10 +112,15 @@ exports.checkEtnaLogin= function (req, res, next) {
                 const savedUser = await newUser.save().catch((err) => {
                   console.error(err);
                   res.json("error : "+ err +" Cannot register user at the moment ")
+    
               });
               if (savedUser) { 
-                passport.authenticate("local").catch()
-                res.json("Thanks for reqistering")
+                req.session.isAdmin = false;
+                req.session.loggedin = true;
+                req.session.login = login;
+                req.session.cookieEtna = headerCookie
+                res.redirect(301, '/index');
+
               }
     
               }

@@ -4,19 +4,22 @@ var router = express.Router();
 
 //LIST ALL 
 exports.listAll = function (req, res, next) {
-    Post.findAll().then( posts => { 
-        console.log(posts);
-        
-        res.render('index',{ 
-        title: 'Bienvenue a la commu des includos',
-        name: 'Zlatan', data:posts
-      });
-    })
+
+      console.log(req.session);
+      if(req.session.loggedin)
+      {
+        Post.findAll().then( posts => { 
+          res.render('index',{ 
+          title: 'Bienvenue a la commu des includos',
+          name: 'Zlatan', data:posts
+        });
+      }) 
+      }
+      else {res.redirect('..')}
 }
 //GET ONE 
 exports.findOne = function(req, res, next){
     Post.findAll( { where: { id : req.params.id }}).then( posts => { 
-      console.log(posts);
       res.render('test', { data:posts })
     })
   }

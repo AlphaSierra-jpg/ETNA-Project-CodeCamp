@@ -20,7 +20,7 @@ const options = {
  */
 
 var port = normalizePort(process.env.PORT || '3000');
-console.log('running on http://localhost:'+port)
+console.log('running on https://localhost:'+port)
 app.set('port', port);
 
 /**

@@ -4,38 +4,20 @@ const bcrypt = require('bcrypt');
 const {User} = require('../models/index');
 var login = require('../controllers/login.controller')
 
-
-
+//route by default 
+router.get('/',function(req, res, next) {
+  if(req.session.loggedin){
+    res.redirect('/index')
+  }else{res.render('login',{ title: 'Etna-Scope Login',})}
+  })
+//route to login 
 router.post('/',login.checkEtnaLogin)
-
-
-// router.post("/",async (req, res) => {
-    
-//     console.log(req.body)
-
-//     const { login,password } = req.body
-
-
-
-//     console.log(login)
-   
-//      const alreadyexistUser = await User.findOne({where :{login}}).catch(err => {console.log("error :"+err)})
-    
-//     if(alreadyexistUser){
-//          return res.json({ message : "an User with the login Already Exist"})
-//      }
-
-
-//     const salt = await bcrypt.genSalt(10)
-//     const newUser = new User({ login,password })
-//     newUser.password = await bcrypt.hash(newUser.password,salt)
-//     const savedUser = await newUser.save().catch((err) => {
-//         console.error(err);
-//         res.json("error : "+ err +" Cannot register user at the moment ")
-//     });
-//      if (savedUser) res.json("Thanks for reqistering")
-// })
-  
+//route to log out
+router.post('/logout',function(req, res, next) {
+  req.session.destroy(null);
+  res.clearCookie(this.cookie, { path: '/' });
+  res.redirect('..')
+})
 module.exports = router;
 
   
