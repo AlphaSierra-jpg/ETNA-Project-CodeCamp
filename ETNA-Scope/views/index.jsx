@@ -9,9 +9,9 @@ function HelloMessage(props) {
     <DefaultLayout title={props.title}>
       <Site data={props.data}/>
       <NewPost/>
-      <form method="POST" action="/logout"><button>LOGOUT</button></form>
+      
     </DefaultLayout>
   );
 }
- 
+
 module.exports = HelloMessage;
