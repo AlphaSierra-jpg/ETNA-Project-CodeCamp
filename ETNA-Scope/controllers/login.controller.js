@@ -120,7 +120,7 @@ exports.checkEtnaLogin= function (req, res, next) {
                 req.session.loggedin = true;
                 req.session.login = login;
                 req.session.cookieEtna = headerCookie
-                res.redirect(301, '/index');
+                return res.redirect('/index')
 
               }
     

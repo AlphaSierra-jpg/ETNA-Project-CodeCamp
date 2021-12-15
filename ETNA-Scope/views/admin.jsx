@@ -1,15 +1,15 @@
 var React = require('react');
 var DefaultLayout = require('./layouts/default');
 var ListAllUser = require('./admin/usersList')
-
+var Header = require('./layouts/header')
 
 function HelloMessage(props) {
   return (
     <DefaultLayout title={props.title}>
-      <form method="POST" action="/logout"><button>LOGOUT</button></form>
+      <Header />
         <ListAllUser data={props.data} />
     </DefaultLayout>
   );
 }
- 
+
 module.exports = HelloMessage;

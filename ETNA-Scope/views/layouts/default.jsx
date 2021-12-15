@@ -1,5 +1,5 @@
 var React = require('react');
-var Header = require('./header')
+
 
 function DefaultLayout(props) {
   return (
@@ -10,7 +10,7 @@ function DefaultLayout(props) {
         
       </head>
       <body>
-        <Header/>
+        
 
           {props.children}
           <script src="/js/index.js"></script>
