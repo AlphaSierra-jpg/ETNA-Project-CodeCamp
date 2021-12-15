@@ -9,7 +9,7 @@ exports.listAll = function (req, res, next) {
       if(req.session.loggedin && req.session.isAdmin){
             User.findAll().then(users => { 
                   res.render('admin',{ 
-                        title: 'Account Adminstration',data:users
+                        title: 'Account Adminstration',data:users,login:req.session.login
                   });
             }) 
       }

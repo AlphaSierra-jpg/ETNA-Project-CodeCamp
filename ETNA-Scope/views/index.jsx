@@ -7,7 +7,7 @@ var Header = require('./layouts/header')
 function HelloMessage(props) {
   return (
     <DefaultLayout title={props.title}>
-      <Header/>
+      <Header login={props.login}/>
       <Site data={props.data}/>
       <NewPost/>
       

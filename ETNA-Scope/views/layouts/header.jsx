@@ -4,7 +4,8 @@ function Header(props) {
 return (
     <header className="Header">
         <h1 className="title_header">ETNA-scope</h1>
-        <p></p>
+        {/* this is the login connected by session */}
+        <p>{props.login}</p>
         <form method="GET" action="/"> 
             <label><span className="visually-hidden"></span></label>
             <input type="text" id="search" placeholder="Search for..." name="search"></input>

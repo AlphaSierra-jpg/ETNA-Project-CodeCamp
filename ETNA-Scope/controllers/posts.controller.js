@@ -5,13 +5,16 @@ var router = express.Router();
 //LIST ALL 
 exports.listAll = function (req, res, next) {
 
-      console.log(req.session);
+      
       if(req.session.loggedin)
       {
+        
         Post.findAll().then( posts => { 
+          
           res.render('index',{ 
-          title: 'Bienvenue a la commu des includos',
-          name: 'Zlatan', data:posts
+          title: 'Etna Scope',
+          data:posts,
+          login:req.session.login
         });
       }) 
       }
