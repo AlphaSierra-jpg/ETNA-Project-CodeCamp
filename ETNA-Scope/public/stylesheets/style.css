@@ -7,7 +7,7 @@ body
     {
     width: 100vw;
     height: 100vh;
-    background-color: whitesmoke;
+    background-color: rgb(52, 52, 54);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -17,6 +17,7 @@ body
     align-items: center;
     justify-content: center;
     }
+
 
 /* Login Part */
 .app
@@ -37,7 +38,6 @@ body
   background: linear-gradient(145deg, #fffeff, #dad5d9);
   box-shadow:  25px 25px 33px #a09c9f, -25px -25px 33px #ffffff;
 }
-
 .app form 
 {
   display: flex;
@@ -47,7 +47,6 @@ body
   justify-content: center;
   width: 30vw;
 }
-
 .btn
 {
   margin-bottom: 10px;
@@ -81,21 +80,80 @@ body
   width: 90%;
   margin-bottom: auto;
 }
+.img{
+  max-width: 200px;
+  max-height: 400px;
+}
 .post {
   margin: 10px;
-  height: 280px;
+  height: 220px;
   width: 200px;
+  max-width: 400px;
   border-radius: 15px;
   text-align: center;
   background: linear-gradient(225deg, #cacaca, #f0f0f0);
-  box-shadow:  -20px 20px 60px #bebebe, 20px -20px 60px #ffffff;
+  box-shadow:  -20px 20px 60px #3b3a3a, 20px -20px 60px #3b3a3a;
   transition: 0.5s;
   flex-shrink: 1;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 .post:hover{
   flex-grow: 2;
 }
-
+.hide{
+  display: none;
+}
+.show:hover + .hide{
+  display: block;
+}
+.box{
+  width: 400px; 
+  height: 300px;
+  background: rgba(47, 54, 64, 0.397);
+  margin: 0 auto;
+  border-radius:12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;  
+  padding-bottom:20px;
+  padding-top:20px;
+} 
+.box h3{
+  color: #ecf0f1;
+  margin-left: 10%;
+  text-transform: uppercase;
+  font-size: 12px;  
+  letter-spacing: 0.2em;
+}
+.loginContainer{  
+  min-height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input{
+  font-family:inherit;
+  background:#ecf0f1;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%; 
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  padding-right:10px;
+  border: 1px solid #DDDDDD;
+  outline:none;
+  transition: all 0.30s ease-in-out;
+  letter-spacing:0.15em;
+  transition: 0.5s;
+}
+.input:focus{
+  width: 90%;
+  box-shadow: 0 0 5px rgb(50, 100, 192); 
+  border: 1px solid rgb(50, 100, 192);
+}
 
 /* Header Part */
 .Header {
