@@ -14,15 +14,9 @@ body
     font-family: 'Homenaje', serif;
     margin: 0;
     padding: 0;    
-    
     align-items: center;
     justify-content: center;
     }
-
-.title {
-  display: flex;
-  justify-content: center;
-}
 
 /* Login Part */
 .app
@@ -75,55 +69,6 @@ body
   cursor: pointer;
 }
 
-.box{
-  width: 400px; 
-  height: 300px;
-  background: rgba(47, 54, 64, 0.397);
-  margin: 0 auto;
-  border-radius:12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;  
-  padding-bottom:20px;
-  padding-top:20px;
-}
-.box h3{
-  color: #ecf0f1;
-  margin-left: 10%;
-  text-transform: uppercase;
-  font-size: 12px;  
-  letter-spacing: 0.2em;
-}
-
-.loginContainer{  
-  min-height:100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.input{
-  font-family:inherit;
-  background:#ecf0f1;
-  margin-left: 10%;
-  margin-right: 10%;
-  width: 80%; 
-  padding-top:10px;
-  padding-bottom:10px;
-  padding-left:10px;
-  padding-right:10px;
-  border: 1px solid #DDDDDD;
-  outline:none;
-  transition: all 0.30s ease-in-out;
-  letter-spacing:0.15em;
-  transition: 0.5s;
-}
-.input:focus{
-  width: 90%;
-  box-shadow: 0 0 5px rgb(50, 100, 192); 
-  border: 1px solid rgb(50, 100, 192);
-}
-
 
 /* Trombi Part */
 .card {
@@ -159,49 +104,8 @@ body
   justify-content: space-between;
 }
 
-.logoutbtn {
-}
 
 
 
 
 
-/* End Trombi */
-
-/* .errorMsg h3, .hideErrorMsg h3{
-  color: #efefef;
-  font-weight:700;  
-  letter-spacing: 0.27em;
-  background: rgba(255, 77, 65, 0.5);
-  width:75%;
-  padding:10px; 
-}
-.errorMsg h3{
-  animation: slideIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-.hideErrorMsg h3{
-  animation: slideOut 0.9s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translate3d(-20rem, 0, 500rem);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes slideOut {
-  from {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    opacity: 0;
-    transform: translate3d(-20rem, 0, 500rem);    
-  }
-} */
