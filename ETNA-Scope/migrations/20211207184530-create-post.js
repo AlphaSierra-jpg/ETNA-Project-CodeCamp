@@ -26,6 +26,9 @@ module.exports = {
       lastName: {
         type: Sequelize.STRING
       },
+      login: {
+        type: Sequelize.STRING
+      },
       pictureUrl: {
         type: Sequelize.STRING
       },

@@ -32,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
   Post.init({
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
+    login: DataTypes.STRING,
     pictureUrl: DataTypes.STRING,
     service: DataTypes.STRING,
     phone: DataTypes.STRING,

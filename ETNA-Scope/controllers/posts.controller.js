@@ -5,29 +5,20 @@ var router = express.Router();
 //LIST ALL 
 exports.listAll = function (req, res, next) {
 
-      
-      if(req.session.loggedin)
-      {
-        
-        Post.findAll().then( posts => { 
-          
-          res.render('index',{ 
-          title: 'Etna Scope',
-          data:posts,
-          login:req.session.login
-        });
-      }) 
-      }
-      else {res.redirect('..')}
-}
-//GET ONE 
-exports.findOne = function(req, res, next){
-    Post.findAll( { where: { id : req.params.id }}).then( posts => { 
-      res.render('test', { data:posts })
+
+  if (req.session.loggedin) {
+
+    Post.findAll().then(posts => {
+
+      res.render('index', {
+        title: 'Etna Scope',
+        data: posts,
+        login: req.session.login
+      });
     })
   }
-  
-
+  else { res.redirect('..') }
+}
 //GET ONE 
 exports.findOne = function (req, res, next) {
   Post.findAll({ where: { id: req.params.id } }).then(posts => {
@@ -38,19 +29,23 @@ exports.findOne = function (req, res, next) {
 //CREATE 
 exports.create = function (req, res, next) {
 
-    var pictureUrl = "https://auth.etna-alternance.net/api/users/" + req.body.pictureUrl + "/photo"
-
-    Post.create({ 
-      firstName : req.body.firstName ,
-      lastName : req.body.lastName,
-      pictureUrl : pictureUrl,
-      service : req.body.service,
-      phone : req.body.phone,
-      mail : req.body.mail,
-      hrNote : req.body.hrNote,
-    }).then( posts => { 
-      res.redirect('/');
-    })
+  const login = req.body.pictureUrl;
+  console.log("login: " + login)
+  var pictureUrl = "https://auth.etna-alternance.net/api/users/" + login + "/photo"
+  console.log("Picture URL: " + pictureUrl)
+  Post.create({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    pictureUrl: pictureUrl,
+    login: login,
+    service: req.body.service,
+    phone: req.body.phone,
+    mail: req.body.mail,
+    hrNote: req.body.hrNote,
+  }).then(posts => {
+    console.log("login2: " + login)
+    res.redirect('/');
+  })
 }
 //UPDATE
 exports.update = function (req, res, next) {
