@@ -30,10 +30,12 @@ exports.findOne = function(req, res, next){
 //CREATE 
 exports.create = function(req, res, next){
 
+    var pictureUrl = "https://auth.etna-alternance.net/api/users/" + req.body.pictureUrl + "/photo"
+
     Post.create({ 
       firstName : req.body.firstName ,
       lastName : req.body.lastName,
-      pictureUrl : req.body.pictureUrl,
+      pictureUrl : pictureUrl,
       service : req.body.service,
       phone : req.body.phone,
       mail : req.body.mail,
