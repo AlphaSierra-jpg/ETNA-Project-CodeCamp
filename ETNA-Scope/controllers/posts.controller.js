@@ -1,4 +1,4 @@
-const {Post} = require('../models/index');
+const { Post } = require('../models/index');
 var express = require('express');
 var router = express.Router();
 
@@ -26,9 +26,17 @@ exports.findOne = function(req, res, next){
       res.render('test', { data:posts })
     })
   }
+  
+
+//GET ONE 
+exports.findOne = function (req, res, next) {
+  Post.findAll({ where: { id: req.params.id } }).then(posts => {
+    res.render('test', { data: posts })
+  })
+}
 
 //CREATE 
-exports.create = function(req, res, next){
+exports.create = function (req, res, next) {
 
     var pictureUrl = "https://auth.etna-alternance.net/api/users/" + req.body.pictureUrl + "/photo"
 
@@ -45,28 +53,28 @@ exports.create = function(req, res, next){
     })
 }
 //UPDATE
-exports.update = function(req, res, next){
-    Post.update({ 
-        firstName : req.body.firstName ,
-        lastName : req.body.lastName,
-        pictureUrl : req.body.pictureUrl,
-         service : req.body.service,
-          phone : req.body.phone,
-          mail : req.body.mail,
-          hrNote : req.body.hrNote, 
-         },{
-            where:{
-              id : req.body.id 
-             }
-         }).then( posts =>{ 
-            res.redirect('/');
-            })
-      }
+exports.update = function (req, res, next) {
+  Post.update({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    pictureUrl: req.body.pictureUrl,
+    service: req.body.service,
+    phone: req.body.phone,
+    mail: req.body.mail,
+    hrNote: req.body.hrNote,
+  }, {
+    where: {
+      id: req.body.id
+    }
+  }).then(posts => {
+    res.redirect('/');
+  })
+}
 //DELETE 
-exports.delete = function(req,res,next){
-        Post.destroy({
-          where: {
-            id: req.params.id
-          }
-        }).then( posts => { res.redirect('/');})
-      }
+exports.delete = function (req, res, next) {
+  Post.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(posts => { res.redirect('/'); })
+}

@@ -15,6 +15,7 @@ function Trombi(props) {
         <a href={"index/dl/" + item.id}>delete</a>
       </div>
     )))}
+
   </div>)
 
 }
