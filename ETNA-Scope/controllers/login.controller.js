@@ -80,7 +80,7 @@ exports.checkEtnaLogin = function (req, res, next) {
 
           userTest = allDev.includes(userLogin)
 
-          if (login == userLogin && (userRole || userTest)) { userExist = 1; }
+          if (login == userLogin && (userRole || userTest)) { userExist = 1; } else { console.log(userLogin + " Essaye d'acceder au site")}
 
         } else {
           console.log("Error:" + error)
