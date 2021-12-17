@@ -142,6 +142,8 @@ body
   display: flex;
   justify-content: center;
   align-items: center;
+  max-height: 480px;
+  max-width: 400px;
 }
 .img{
   border-radius: 50%;
@@ -164,13 +166,31 @@ body
 
 /* Header Part */
 .Header {
+  background-color: rgba(79, 83, 88, 0.397);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  color: white;
 }
 
+.marg_top {
+  margin-top: 10px;
+}
 
-
+/* Admin */
+.post_admin{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.post_admin a {
+  all: unset;
+  color: wheat;
+  border: 1.5px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  padding: 5px;
+}
 
 
 

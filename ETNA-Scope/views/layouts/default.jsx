@@ -8,7 +8,8 @@ function DefaultLayout(props) {
         <title>{props.title}</title>
         <link rel="stylesheet" href='/stylesheets/style.css'></link>
         <link rel="stylesheet" href='/stylesheets/popUp.css'></link>
-        
+        <link rel="stylesheet" href='/stylesheets/menu.css'></link>
+        <script src="https://kit.fontawesome.com/f22c5a81ce.js" crossorigin="anonymous"></script>
       </head>
       <body>
         
