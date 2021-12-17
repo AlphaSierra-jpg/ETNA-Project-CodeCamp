@@ -1,7 +1,7 @@
 var React = require('react');
 
 function userList(props) {
-    return ( <div>
+    return ( <div style={{ display:"flex"}}>
         {props.data.map(((item) => (
         <div key={item.id} className="post post_admin">
           <h3>{item.login}</h3>
