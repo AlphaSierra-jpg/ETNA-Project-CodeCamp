@@ -6,15 +6,20 @@ function Trombi(props) {
   return (<div class="card">
     {props.data.map(((item) => (
       <div key={item.id} className="post">
-        <h3>{item.lastName} - {item.id}</h3>
-        <p>{item.firstName}</p>
-        <img src={item.pictureUrl} alt='new' height={150} width={175} />
-        <p>{item.mail}</p>
-        <p>{item.phone}</p>
-        {}
-        {props.isAdmin ? <a href={"index/" + item.id}>modify </a> : <p></p>}
-        {props.isAdmin ?  <a href={"index/dl/" + item.id}>delete</a>: <p></p>}
-       
+          <div className="show">
+            <h3>{item.lastName} - {item.id}</h3>
+            <p>{item.firstName}</p> <br />
+            <div className="img">
+              <img src={item.pictureUrl} alt='new' height={120} width={125} />
+            </div>
+            
+          </div>
+          <div className="hide">
+            <p>{item.mail}</p>
+            <p>{item.phone}</p>
+            {props.isAdmin ? <button className="btnx"> <a href={"index/" + item.id}>modify</a> </button> : <p></p>}
+            {props.isAdmin ?  <button className="btnx"> <a href={"index/dl/" + item.id}>delete</a> </button>: <p></p>}
+          </div>
       </div>
     )))}
 
