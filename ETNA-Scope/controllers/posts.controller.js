@@ -9,11 +9,11 @@ exports.listAll = function (req, res, next) {
   if (req.session.loggedin) {
 
     Post.findAll().then(posts => {
-
+      console.log('isAdmin',req.session)
       res.render('index', {
         title: 'Etna Scope',
         data: posts,
-        login: req.session.login
+        login: req.session.login,isAdmin:req.session.isAdmin
       });
     })
   }
@@ -21,8 +21,8 @@ exports.listAll = function (req, res, next) {
 }
 //GET ONE 
 exports.findOne = function (req, res, next) {
-  Post.findAll({ where: { id: req.params.id } }).then(posts => {
-    res.render('test', { data: posts })
+  Post.findAll({ where: { id: req.params.id } }).then(post => {
+    res.render('modify', { title: 'Etna Scope',data:post ,login:req.session.login,isAdmin:req.session.isAdmin})
   })
 }
 
@@ -49,10 +49,14 @@ exports.create = function (req, res, next) {
 }
 //UPDATE
 exports.update = function (req, res, next) {
+  const login = req.body.pictureUrl;
+  var pictureUrl = "https://auth.etna-alternance.net/api/users/" + login + "/photo"
+  
   Post.update({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
-    pictureUrl: req.body.pictureUrl,
+    pictureUrl: pictureUrl,
+    login: login,
     service: req.body.service,
     phone: req.body.phone,
     mail: req.body.mail,

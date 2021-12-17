@@ -1,10 +1,9 @@
 var React = require('react');
 var Trombi = require('./trombi');
-var CreateNewPost = require('./createNewPost');
 
 function Site(props){ 
     return (
-                <Trombi data={props.data}/>    
+                <Trombi data={props.data} login={props.login} isAdmin={props.isAdmin}/>    
             )
 }
 module.exports = Site;

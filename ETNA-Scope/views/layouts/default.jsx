@@ -7,6 +7,7 @@ function DefaultLayout(props) {
       <head>
         <title>{props.title}</title>
         <link rel="stylesheet" href='/stylesheets/style.css'></link>
+        <link rel="stylesheet" href='/stylesheets/popUp.css'></link>
         
       </head>
       <body>
@@ -14,6 +15,7 @@ function DefaultLayout(props) {
 
           {props.children}
           <script src="/js/index.js"></script>
+          <script src="/js/popUp.js"></script>
         
       </body>
     </html>

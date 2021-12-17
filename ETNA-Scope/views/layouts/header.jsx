@@ -13,6 +13,7 @@ return (
         </form>
         <form method="POST" action="/logout"><button className="logoutbtn">LOGOUT</button></form>
         
+        {props.isAdmin ? <button className="createNewPost">+</button> : <p></p>}
 
     </header>
 );

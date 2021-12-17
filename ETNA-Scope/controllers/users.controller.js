@@ -18,25 +18,24 @@ exports.listAll = function (req, res, next) {
 //FIND ONE USER
 exports.findOne = function(req, res, next){
       if(req.session.loggedin && req.session.isAdmin){
-            User.findAll( { where: { id : req.params.id }}).then( user => { 
-                  res.render('admin', { data:user })
+            var state;
+            User.findAll({where:{id:req.params.id}}).then(users => {
+                  users.isAdmin == 0  ? state = 1 : state = 0;
             })
-      }else {res.redirect('..')}
-}
-//UPDATE ONE USER
-exports.update = function(req, res, next){
-      if(req.session.loggedin && req.session.isAdmin){
             User.update({ 
-                  isAdmin : req.body.isAdmin ,
+                  isAdmin : state
             },{
                   where:{
-                        id : req.body.id 
+                        id : req.params.id
                   }
             }).then( user =>{ 
                   res.redirect('/admin');
             })
-      }else{res.redirect('..')}
+
+      }else {res.redirect('..')}
 }
+//UPDATE ONE USER
+
 //DELETE AN USER 
 exports.delete = function(req,res,next){
       if(req.session.loggedin && req.session.isAdmin){

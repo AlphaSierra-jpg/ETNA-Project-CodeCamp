@@ -11,8 +11,10 @@ function Trombi(props) {
         <img src={item.pictureUrl} alt='new' height={150} width={175} />
         <p>{item.mail}</p>
         <p>{item.phone}</p>
-        <a href={"/" + item.id}>test </a>
-        <a href={"index/dl/" + item.id}>delete</a>
+        {}
+        {props.isAdmin ? <a href={"index/" + item.id}>modify </a> : <p></p>}
+        {props.isAdmin ?  <a href={"index/dl/" + item.id}>delete</a>: <p></p>}
+       
       </div>
     )))}
 

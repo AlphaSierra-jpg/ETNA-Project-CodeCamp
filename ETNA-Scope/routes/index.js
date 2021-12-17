@@ -7,11 +7,15 @@ const postController = require('../controllers/posts.controller');
 //route for display all personne in trombi
 router.get('/',postController.listAll);
 //FIND ONE POST
-router.get('/:id', postController.findOne);
+router.get('/:id',function (req, res, next) {
+  Post.findAll({ where: { id: req.params.id } }).then(posts => {
+    res.render('modify', { modify: posts })
+  })
+});
 //CREATE ONE POST
 router.post('/create', postController.create)
 //UPDATE a POST
-router.post('/post/update', postController.update)
+router.post('/update', postController.update)
 //Delete one post 
 router.get('/dl/:id', postController.delete);
 //Say hello to zlatan

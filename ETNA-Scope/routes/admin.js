@@ -7,8 +7,6 @@ const admin = require('../controllers/users.controller');
 router.get('/',admin.listAll);
 //GET ONE USER
 router.get('/:id', admin.findOne);
-//UDPDATE AN USER
-router.post('/update', admin.update)
 //DELETE AN USER 
 router.get('/dl/:id', admin.delete);
 
