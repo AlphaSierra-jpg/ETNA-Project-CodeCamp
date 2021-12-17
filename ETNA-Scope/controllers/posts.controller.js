@@ -16,7 +16,7 @@ exports.listAll = function (req, res, next) {
         res.render('index', {
           title: 'Etna Scope',
           data: posts,
-          login: req.session.login
+          login: req.session.login,isAdmin:req.session.isAdmin
         });
       })
     } else {
@@ -25,7 +25,7 @@ exports.listAll = function (req, res, next) {
         res.render('index', {
           title: 'Etna Scope',
           data: posts,
-          login: req.session.login
+          login: req.session.login,isAdmin:req.session.isAdmin
         });
       })
     }

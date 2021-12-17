@@ -17,9 +17,12 @@ function HelloMessage(props) {
         <input name="lastName" value={props.modify[0].lastName} required />
         <label htmlFor="service">Service</label>
         <select v-model="selected" name="service" defaultValue={props.modify[0].service}>
-                <option value="test1">test1</option>
-                <option value="test2">test2</option>
-                <option value="test3">test3</option>
+                    <option value="Service pédagogique">Service pédagogique</option>
+                    <option value="Service administratif">Service administratif</option>
+                    <option value="Service des admissions">Service des admissions</option>
+                    <option value="BLU">BLU</option>
+                    <option value="Studio">Studio</option>
+                    <option value="RH et Office Management">RH et Office Management</option>
         </select>
         <label htmlFor="pictureUrl">Login</label>
         <input name="pictureUrl" type="text" value={props.modify[0].login} required />
@@ -27,7 +30,7 @@ function HelloMessage(props) {
         <input name="mail" type="email" value={props.modify[0].mail} required />
         <label htmlFor="phone">Phone</label>
         <input type="tel" pattern="[+]{1}[0-9]{2}[0-9]{9}" name="phone" value={props.modify[0].phone} required />
-        <label htmlFor="hrNote">Phone</label>
+        <label htmlFor="hrNote">HR Note</label>
         <textarea name="hrNote" value={props.modify[0].hrNote}/>
         <button type="submit">button</button>
         </form>

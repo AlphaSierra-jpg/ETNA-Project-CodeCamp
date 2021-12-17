@@ -40,9 +40,12 @@ function setNewCreationForm(){
     <input name="lastName" placeholder="Last name" required />
     <label for="service">Service</label>
     <select name="service" >
-        <option value="test1">test1</option>
-        <option value="test2" selected>test2</option>
-        <option value="test3">test3</option>
+        <option value="Service pédagogique" selected>Service pédagogique</option>
+        <option value="Service administratif">Service administratif</option>
+        <option value="Service des admissions">Service des admissions</option>
+        <option value="BLU">BLU</option>
+        <option value="Studio">Studio</option>
+        <option value="RH et Office Management">RH et Office Management</option>
     </select>
     <label for="pictureUrl">Login</label>
     <input name="pictureUrl" type="text" placeholder="Login" required />
