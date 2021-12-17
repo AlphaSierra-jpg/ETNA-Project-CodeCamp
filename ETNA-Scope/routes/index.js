@@ -23,6 +23,8 @@ router.get('/zlatan',function(req,res,next){
   res.json('hello');
 })
 
+router.post('/sorted',postController.listAll);
+
 
 
 module.exports = router;

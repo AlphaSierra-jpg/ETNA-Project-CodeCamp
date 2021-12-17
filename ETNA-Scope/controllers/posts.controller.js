@@ -7,15 +7,30 @@ exports.listAll = function (req, res, next) {
 
 
   if (req.session.loggedin) {
+    
+    console.log("Body search: " + req.body.search ) 
 
-    Post.findAll().then(posts => {
-      console.log('isAdmin',req.session)
-      res.render('index', {
-        title: 'Etna Scope',
-        data: posts,
-        login: req.session.login,isAdmin:req.session.isAdmin
-      });
-    })
+    if (req.body.search) {
+      Post.findAll({ where: { service: req.body.search } }).then(posts => {
+
+        res.render('index', {
+          title: 'Etna Scope',
+          data: posts,
+          login: req.session.login
+        });
+      })
+    } else {
+      Post.findAll().then(posts => {
+
+        res.render('index', {
+          title: 'Etna Scope',
+          data: posts,
+          login: req.session.login
+        });
+      })
+    }
+
+    
   }
   else { res.redirect('..') }
 }

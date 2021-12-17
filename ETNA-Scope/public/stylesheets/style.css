@@ -155,8 +155,9 @@ body
   display: none;
   transition: 0.5s;
 }
-.show:hover + .hide{
+.post:hover > .hide{
   display: block;
+  transition: 0.7s;
 }
 .btnx{
   margin-top: 25px;
