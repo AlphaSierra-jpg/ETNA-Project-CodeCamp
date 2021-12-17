@@ -29,6 +29,7 @@ body
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  align-items: center;
   height: 300px;
   margin-left: auto;
   margin-right: auto;
@@ -68,7 +69,54 @@ body
   width: 25%;
   cursor: pointer;
 }
+.box{
+  width: 400px; 
+  height: 300px;
+  background: rgba(47, 54, 64, 0.397);
+  margin: 0 auto;
+  border-radius:12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-bottom:20px;
+  padding-top:20px;
+}
+.box h3{
+  color: #ecf0f1;
+  margin-left: 10%;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+}
 
+.loginContainer{
+  min-height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input{
+  font-family:inherit;
+  background:#ecf0f1;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%; 
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  padding-right:10px;
+  border: 1px solid #DDDDDD;
+  outline:none;
+  transition: all 0.30s ease-in-out;
+  letter-spacing:0.15em;
+  transition: 0.5s;
+}
+.input:focus{
+  width: 90%;
+  box-shadow: 0 0 5px rgb(50, 100, 192); 
+  border: 1px solid rgb(50, 100, 192);
+}
 
 /* Trombi Part */
 .card {
@@ -107,6 +155,11 @@ body
 }
 .show:hover + .hide{
   display: block;
+}
+.btnx{
+  margin-top: 25px;
+  border-radius: 25px;
+  cursor: pointer;
 }
 
 /* Header Part */

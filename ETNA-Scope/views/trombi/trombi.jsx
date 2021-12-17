@@ -17,8 +17,8 @@ function Trombi(props) {
           <div className="hide">
             <p>{item.mail}</p>
             <p>{item.phone}</p>
-            <a href={"/" + item.id}>test </a>
-            <a href={"index/dl/" + item.id}>delete</a>
+            <button className="btnx"> <a href={"/" + item.id}>test </a> </button>
+            <button className="btnx"> <a href={"index/dl/" + item.id}>delete</a> </button>
           </div>
       </div>
     )))}
