@@ -9,10 +9,7 @@ function Trombi(props) {
           <div className="show">
             <h3>{item.lastName} - {item.id}</h3>
             <p>{item.firstName}</p> <br />
-            <div className="img">
-              <img src={item.pictureUrl} alt='new' height={120} width={125} />
-            </div>
-            
+            <img className="img" src={item.pictureUrl} alt='new' height={120} width={125} />
           </div>
           <div className="hide">
             <p>{item.mail}</p>

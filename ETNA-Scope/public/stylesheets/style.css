@@ -135,7 +135,7 @@ body
   width: 200px;
   border-radius: 15px;
   text-align: center;
-  background: linear-gradient(225deg, #cacaca, #f0f0f0);
+  background: url("https://c.neh.tw/thumb/f/720/5582720193265664.jpg");
   box-shadow:  -20px 20px 60px #292727, 20px -20px 60px #292727;
   transition: 0.5s;
   flex-shrink: 1;
